@@ -1,7 +1,6 @@
 const Producto = require('../models/Producto');
 const { Op } = require('sequelize');
 
-// GET /api/productos
 const listarProductos = async (req, res) => {
     try {
         const productos = await Producto.findAll();
@@ -10,8 +9,6 @@ const listarProductos = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al obtener los productos' });
     }
 };
-
-// GET /api/productos/buscar?nombre=texto
 const buscarProductos = async (req, res) => {
     try {
         const { nombre } = req.query;
@@ -33,8 +30,6 @@ const buscarProductos = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al buscar productos' });
     }
 };
-
-// GET /api/productos/:id
 const obtenerProductoPorId = async (req, res) => {
     try {
         const { id } = req.params;
@@ -49,8 +44,6 @@ const obtenerProductoPorId = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al obtener el producto' });
     }
 };
-
-// POST /api/productos
 const crearProducto = async (req, res) => {
     try {
         const { nombre, descripcion, precio, stock, estado } = req.body;
@@ -78,8 +71,6 @@ const crearProducto = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al registrar el producto' });
     }
 };
-
-// PUT /api/productos/:id
 const actualizarProducto = async (req, res) => {
     try {
         const { id } = req.params;
@@ -116,8 +107,6 @@ const actualizarProducto = async (req, res) => {
         res.status(500).json({ mensaje: 'Error al actualizar el producto' });
     }
 };
-
-// DELETE /api/productos/:id
 const eliminarProducto = async (req, res) => {
     try {
         const { id } = req.params;
