@@ -19,5 +19,4 @@ const sequelize = new Sequelize(
     }
 );
 
-// IMPORTANTE: Exportar la instancia directamente
 module.exports = sequelize;
